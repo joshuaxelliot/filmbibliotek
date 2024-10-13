@@ -2,8 +2,9 @@
 
 import { createSlice } from '@reduxjs/toolkit';
 
+// Hämta favoriter från localStorage 
 const initialState = {
-  favorites: [],
+  favorites: JSON.parse(localStorage.getItem('favorites')) || [], // Ladda favoriter från localStorage
 };
 
 const favoritesSlice = createSlice({
@@ -15,11 +16,13 @@ const favoritesSlice = createSlice({
       const exists = state.favorites.some((fav) => fav.id === movie.id);
       if (!exists) {
         state.favorites.push(movie);
+        localStorage.setItem('favorites', JSON.stringify(state.favorites)); // Spara till localStorage
       }
     },
     removeFavorite: (state, action) => {
       const movieId = action.payload;
       state.favorites = state.favorites.filter((fav) => fav.id !== movieId);
+      localStorage.setItem('favorites', JSON.stringify(state.favorites)); // Uppdatera localStorage
     },
   },
 });
