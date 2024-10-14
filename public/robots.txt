@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /private/  #Stoppar åtkomst till den privata mappen så sökmotorer inte kan se innehållet där.
+Allow: /               #Tillåter åtkomst till alla andra sidor på webbplatsen för sökmotorer.

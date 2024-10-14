@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap-image/1.1">
+  <url>
+    <loc>http://localhost:5173/</loc> <!-- Huvudsidan -->
+    <lastmod>2024-10-12</lastmod> <!-- Datum för senaste ändring -->
+    <changefreq>daily</changefreq> <!-- Sida kan ändras dagligen -->
+    <priority>1.0</priority> <!-- Hög prioritet -->
+  </url>
+  <url>
+    <loc>http://localhost:5173/my-list</loc> <!-- /my-list -->
+    <lastmod>2024-10-12</lastmod> <!-- Datum för senaste ändring -->
+    <changefreq>weekly</changefreq> <!-- Sida kan ändras veckovis -->
+    <priority>0.8</priority> <!-- Medelhög prioritet -->
+  </url>
+  <url>
+    <loc>http://localhost:5173/movie/308266</loc> <!-- Exempel på en filmsida (War Dogs) -->
+    <lastmod>2024-10-12</lastmod> <!-- Datum för senaste ändring -->
+    <changefreq>weekly</changefreq> <!-- Sida kan ändras veckovis -->
+    <priority>0.5</priority> <!-- Låg prioritet -->
+  </url>
+</urlset>
