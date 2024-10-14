@@ -1,10 +1,8 @@
 // /src/pages/Home.js
-
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPopularMovies, fetchMoviesBySearchTerm } from "../redux/slices/moviesSlice"; // Importerar thunks
 import { Link } from "react-router-dom";
-import { Helmet } from 'react-helmet'; // Importerar helmet
 
 function Home({ searchTerm }) {
   const dispatch = useDispatch();
@@ -47,11 +45,6 @@ function Home({ searchTerm }) {
 
   return (
     <div className="p-5">
-      <Helmet>
-        <title>JJ Streaming</title>
-        <meta name="description" content="Discover the most popular movies and search for your favorites." />
-        <meta name="keywords" content="movies, popular movies, movie library," />
-      </Helmet>
       <h1 className="text-3xl font-bold mb-5 text-white">Explore Movies</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {content}
