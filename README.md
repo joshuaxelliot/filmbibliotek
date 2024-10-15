@@ -1,8 +1,31 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# JJ Streaming
 
-Currently, two official plugins are available:
+Detta projekt är en applikation för att upptäcka och söka efter populära filmer. Du som användare av sidan kan också spara filmer till din personliga lista.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Användning
+- Sök efter filmer genom att skriva i sökrutan.
+- Klicka på hjärtat så läggs filmer till på "My list" uppe i headern.
+
+
+## Installation
+1. Klona repot.
+2. Installera beroenden med `npm install`.
+3. Starta servern med `npm run dev`.
+
+### Funktioner
+- Sökfunktionalitet
+- Favoriter
+- Responsiv design
+
+### Teknologier
+- React
+- Redux
+- React Router
+- Material-UI (MUI)
+- Axios
+- Tailwind CSS
+- Vite
+- React Helmet
+- Google Tag Manager
