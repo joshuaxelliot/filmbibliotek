@@ -1,4 +1,4 @@
-// /src/pages/Home.js
+
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPopularMovies, fetchMoviesBySearchTerm } from "../redux/slices/moviesSlice"; // Importerar thunks

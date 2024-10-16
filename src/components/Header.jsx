@@ -6,7 +6,7 @@ import { TextField } from "@mui/material";
 function Header({ onSearchChange }) {
   // Funktion för att hantera förändringar i sökrutan
   const handleSearchChange = (event) => {
-    onSearchChange(event.target.value); // Skicka söktermen till Home-komponenten via prop
+    onSearchChange(event.target.value); // Skickar söktermen till Home-komponenten via prop
   };
 
   return (

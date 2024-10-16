@@ -6,7 +6,7 @@ import { selectFavorites } from "../redux/selectors";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import axios from "axios";
 
-const API_KEY = "abe333f06bf4f625c9f2d82d4962a58b"; // Använd din TMDB API-nyckel
+const API_KEY = "abe333f06bf4f625c9f2d82d4962a58b"; 
 const BASE_URL = "https://api.themoviedb.org/3";
 
 function MovieDetailsPage() {

@@ -1,8 +1,8 @@
-// /src/redux/slices/favoritesSlice.js
+
 
 import { createSlice } from '@reduxjs/toolkit';
 
-// Hämta favoriter från localStorage 
+// Hämtar favoriter från localStorage 
 const initialState = {
   favorites: JSON.parse(localStorage.getItem('favorites')) || [], // Ladda favoriter från localStorage
 };

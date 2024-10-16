@@ -25,10 +25,9 @@ a {
 }
 
 body {
-  /* Ta bort height: 100vh; */
-  /* Bakgrundsfärgen kan ställas in här om du vill */
-  min-height: 100vh; /* Behåll detta om du behöver */
-  background-color: #131520; /* Behåll om du vill ha en standardfärg */
+
+  min-height: 100vh; 
+  background-color: #131520; 
 }
 
 h1 {

@@ -1,4 +1,4 @@
-// /src/redux/slices/moviesSlice.js
+
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
