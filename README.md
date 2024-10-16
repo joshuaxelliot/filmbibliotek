@@ -29,3 +29,11 @@ Detta projekt är en applikation för att upptäcka och söka efter populära fi
 - Vite
 - React Helmet
 - Google Tag Manager
+
+## Testresultat
+
+### End-2-End Test
+
+Nedan visar jag på att mitt test fungerade.
+
+![Cypress Test Resultat](./src/assets/images/cypress_test.png) 
