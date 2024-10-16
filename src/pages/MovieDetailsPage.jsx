@@ -103,7 +103,7 @@ function MovieDetailsPage() {
                   onClick={handleAddToFavorites}
                   className="flex items-center bg-transparent text-white m-0 p-0 "
                 >
-                  <FaRegHeart className="text-4xl " />
+                  <FaRegHeart className="text-4xl " />cypress
                 </button>
               )}
             </div>
