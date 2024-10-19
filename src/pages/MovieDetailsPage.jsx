@@ -1,10 +1,10 @@
+
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, removeFavorite } from "../redux/slices/favoritesSlice";
 import { selectFavorites } from "../redux/selectors";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
-import axios from "axios";
 
 const API_KEY = "abe333f06bf4f625c9f2d82d4962a58b"; 
 const BASE_URL = "https://api.themoviedb.org/3";
@@ -18,10 +18,14 @@ function MovieDetailsPage() {
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const response = await axios.get(
+        const response = await fetch(
           `${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=en-US`
         );
-        setMovie(response.data);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setMovie(data);
       } catch (error) {
         console.error("Error fetching movie details:", error);
       }
@@ -29,17 +33,14 @@ function MovieDetailsPage() {
     fetchMovieDetails();
   }, [id]);
 
-  // Kontrollera om filmen redan är i favoriter
   const isFavorite = favorites.some((fav) => fav.id === movie?.id);
 
-  // Funktion för att lägga till filmen i favoriter
   const handleAddToFavorites = () => {
     if (movie) {
       dispatch(addFavorite(movie));
     }
   };
 
-  // Funktion för att ta bort filmen från favoriter
   const handleRemoveFromFavorites = () => {
     dispatch(removeFavorite(movie.id));
   };
@@ -89,7 +90,6 @@ function MovieDetailsPage() {
               </p>
             </div>
 
-            {/* Favoritknapp */}
             <div className="mt-6 flex items-center space-x-4">
               {isFavorite ? (
                 <button

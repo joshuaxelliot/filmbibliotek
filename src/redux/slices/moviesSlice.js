@@ -1,25 +1,30 @@
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
-const API_KEY = 'abe333f06bf4f625c9f2d82d4962a58b'; // Din TMDB API-nyckel
+const API_KEY = 'abe333f06bf4f625c9f2d82d4962a58b'; 
 const BASE_URL = 'https://api.themoviedb.org/3';
 
-// Thunk för att hämta populära filmer
 export const fetchPopularMovies = createAsyncThunk(
   'movies/fetchPopularMovies',
   async () => {
-    const response = await axios.get(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
-    return response.data.results; // Returnera resultatet
+    const response = await fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data.results;
   }
 );
 
-// Thunk för att hämta filmer baserat på sökterm
 export const fetchMoviesBySearchTerm = createAsyncThunk(
   'movies/fetchMoviesBySearchTerm',
   async (searchTerm) => {
-    const response = await axios.get(`${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${searchTerm}`);
-    return response.data.results; // Returnera resultatet
+    const response = await fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${searchTerm}`);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data.results;
   }
 );
 
@@ -34,26 +39,26 @@ const moviesSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchPopularMovies.pending, (state) => {
-        state.status = 'loading'; // Sätt status till laddar
+        state.status = 'loading';
       })
       .addCase(fetchPopularMovies.fulfilled, (state, action) => {
-        state.status = 'succeeded'; // Sätt status till lyckad
-        state.movies = action.payload; // Spara filmerna
+        state.status = 'succeeded';
+        state.movies = action.payload;
       })
       .addCase(fetchPopularMovies.rejected, (state, action) => {
-        state.status = 'failed'; // Sätt status till misslyckad
-        state.error = action.error.message; // Spara felmeddelande
+        state.status = 'failed';
+        state.error = action.error.message;
       })
       .addCase(fetchMoviesBySearchTerm.pending, (state) => {
-        state.status = 'loading'; // Sätt status till laddar
+        state.status = 'loading';
       })
       .addCase(fetchMoviesBySearchTerm.fulfilled, (state, action) => {
-        state.status = 'succeeded'; // Sätt status till lyckad
-        state.movies = action.payload; // Spara filmerna baserat på sökterm
+        state.status = 'succeeded';
+        state.movies = action.payload;
       })
       .addCase(fetchMoviesBySearchTerm.rejected, (state, action) => {
-        state.status = 'failed'; // Sätt status till misslyckad
-        state.error = action.error.message; // Spara felmeddelande
+        state.status = 'failed';
+        state.error = action.error.message;
       });
   },
 });
